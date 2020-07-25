@@ -76,7 +76,8 @@ class Order < Store
         end
       end
     end
-    p result, "result"
+    # p result, "result"
+    puts 
     puts Terminal::Table.new(
       rows: result,
       headings: ["Item", "Quantity", "Price"]
@@ -94,6 +95,7 @@ order = Order.new
 order_list = order.get_order_list(items)
 # p "order list", order_list
 order.calculate(order_list)
+puts
 if !order.not_available_items.empty?
   puts "Total price: $#{order.total_cost_of_purchase} excluding #{order.not_available_items.join(",")} as these are not available"
 else 
